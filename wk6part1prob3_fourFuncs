@@ -1,0 +1,58 @@
+# Week 6, Ch 6, Part 1, Problem 3
+# Write list functions that carry out the following tasks for a list of ints.
+# For each function, provide a test program.
+# Define constant variables.
+# Part a) Swap the first and last elements in the list.
+# Part b) Replace all even elements with a zero
+# Part c) Return the second-largest element in the list
+# Part d) Return true if list is sorted in increasing order.
+
+# Declare constant list.
+ONE_TEN = [1,2,3,5,4,6,7,8,9,10]
+
+# Part a) swapFirstLast() function header.
+def swapFirstLast(listToSwap):
+    data = list(listToSwap)
+    (data[0], data[-1]) = (listToSwap[-1], listToSwap[0])
+    return data
+
+# Part b) replace all even elements with a zero.
+def replaceEvenZero(listToReplace):
+    # Declare variable to build our new list
+    evenZeroList = []
+    for number in listToReplace:
+        if number % 2 == 0:
+            evenZeroList.append(0)
+        else:
+            evenZeroList.append(number)
+    return evenZeroList
+
+# Part c) Return the second-largest element from list
+def secondLargest(userList):
+    # Have to sort the list first for this to work
+    userList.sort()
+    # Return second to last element of the smallest to largest sorted list
+    return userList[-2]
+
+# Part d) Return True if list is sorted in increasing order
+def isSorted(userList):
+    copyUserList = list(userList)
+    copyUserList.sort()
+    print("CopyUserList: ",copyUserList)
+    print("userList: ", userList)
+    return (copyUserList == userList)
+    
+
+# main function header.
+def main():
+    print("The original data for all functions is: ", ONE_TEN)
+    #Demonstrate swapping the first and last element.
+    data = list(ONE_TEN)
+    #print("After swapping first and last: ", swapFirstLast(data))
+    #print("After replacing all even numbers with zeros: ", replaceEvenZero(ONE_TEN))
+    #print("The second largest element in the list: ", secondLargest(ONE_TEN))
+    print("Is the list sorted in increasing order? ", isSorted(ONE_TEN))
+    #print("Original data: ", ONE_TEN)
+
+# Entry point, call to main() function
+main()
